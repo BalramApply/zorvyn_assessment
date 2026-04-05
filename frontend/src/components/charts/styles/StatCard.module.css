@@ -1,0 +1,113 @@
+/* ─── Card Shell ──────────────────────────────────────────────── */
+.card {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  border-color: color-mix(in srgb, var(--card-color) 30%, var(--border));
+  box-shadow: 0 0 20px color-mix(in srgb, var(--card-color) 10%, transparent);
+}
+
+/* scanline texture */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.05) 3px,
+    rgba(0, 0, 0, 0.05) 4px
+  );
+  pointer-events: none;
+}
+
+/* ─── Background Glow ─────────────────────────────────────────── */
+.glow {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--card-color);
+  opacity: 0.06;
+  filter: blur(20px);
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.card:hover .glow { opacity: 0.1; }
+
+/* ─── Body Row ────────────────────────────────────────────────── */
+.body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Text Side ───────────────────────────────────────────────── */
+.label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  margin: 0 0 10px;
+}
+
+.value {
+  font-size: 26px;
+  font-weight: 800;
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  color: var(--text);
+  line-height: 1;
+  margin: 0;
+}
+
+/* ─── Trend ───────────────────────────────────────────────────── */
+.trend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.trendUp   { font-size: 12px; color: var(--green); font-family: var(--font-mono); }
+.trendDown { font-size: 12px; color: var(--red);   font-family: var(--font-mono); }
+
+/* ─── Icon Box ────────────────────────────────────────────────── */
+.iconBox {
+  width: 42px;
+  height: 42px;
+  clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+  background: color-mix(in srgb, var(--card-color) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--card-color) 25%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--card-color);
+  transition: background 0.2s;
+}
+
+.card:hover .iconBox {
+  background: color-mix(in srgb, var(--card-color) 20%, transparent);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .card  { padding: 16px 18px; }
+  .value { font-size: 22px; }
+}

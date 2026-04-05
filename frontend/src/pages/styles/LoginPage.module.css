@@ -1,0 +1,239 @@
+/* ─── Page Shell ──────────────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  background: var(--bg);
+}
+
+/* ─── Left Panel (decorative) ─────────────────────────────────── */
+.leftPanel {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px;
+  background: linear-gradient(135deg, #0d0d1f 0%, #06060f 100%);
+  border-right: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.leftContent {
+  position: relative;
+  z-index: 1;
+}
+
+.leftQuote {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1.4;
+  color: var(--text);
+  margin: 0 0 16px;
+  letter-spacing: 0.02em;
+}
+
+/* neon highlight on key phrase */
+.leftQuote em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.leftTagline {
+  color: var(--text-3);
+  font-size: 12px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* decorative grid overlay */
+.leftGrid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* glow orb */
+.leftOrb {
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.05;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* ─── Right Panel (form) ──────────────────────────────────────── */
+.rightPanel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.formCard {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ─── Logo ────────────────────────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  flex-shrink: 0;
+}
+
+.logoIconLg {
+  width: 40px;
+  height: 40px;
+}
+
+.logoName {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.logoNameLg {
+  font-size: 22px;
+}
+
+/* ─── Heading ─────────────────────────────────────────────────── */
+.heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0 0 6px;
+}
+
+.subheading {
+  color: var(--text-2);
+  font-size: 13px;
+  font-family: var(--font-body);
+  letter-spacing: 0.04em;
+  margin: 0 0 28px;
+}
+
+/* ─── Alert wrapper ───────────────────────────────────────────── */
+.alertWrap {
+  margin-bottom: 20px;
+}
+
+/* ─── Form ────────────────────────────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.submitBtn {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* ─── Footer link ─────────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--text-3);
+  font-family: var(--font-body);
+}
+
+.link {
+  color: var(--gold);
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: opacity 0.15s;
+}
+.link:hover { opacity: 0.75; }
+
+/* ─── Demo Credentials ────────────────────────────────────────── */
+.demoBox {
+  margin-top: 32px;
+  padding: 16px;
+  background: var(--bg-3);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.demoLabel {
+  font-size: 10px;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+.demoList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.demoBtn {
+  text-align: left;
+  background: var(--bg-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 7px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--text-2);
+  transition: border-color 0.15s, background 0.15s;
+  width: 100%;
+}
+.demoBtn:hover {
+  border-color: var(--gold);
+  background: var(--gold-glow);
+  color: var(--text);
+}
+
+.demoBtnRole {
+  color: var(--gold);
+  margin-right: 8px;
+  font-weight: 700;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+@media (min-width: 900px) {
+  .leftPanel { display: flex; }
+}
+
+@media (max-width: 480px) {
+  .rightPanel { padding: 32px 16px; align-items: flex-start; padding-top: 40px; }
+  .heading    { font-size: 22px; }
+  .logo       { margin-bottom: 28px; }
+}

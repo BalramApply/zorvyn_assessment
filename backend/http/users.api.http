@@ -1,0 +1,63 @@
+### Base URL
+@baseUrl = http://localhost:5000/api/users
+
+### Admin Token (REQUIRED for all requests)
+@adminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDA5OTZkODIwNGU4MzE2ZTNkNzc2YiIsImlhdCI6MTc3NTI3OTIzMSwiZXhwIjoxNzc1ODg0MDMxfQ.fG6Q-8guQ5T9lCkwOn72Hr4Gbbw3BXB51Jm1QrqS0zQ
+
+### =========================
+### 1. Get All Users (Pagination)
+### =========================
+GET {{baseUrl}}?page=1&limit=10
+Authorization: Bearer {{adminToken}}
+
+
+### =========================
+### 2. Get User By ID
+### =========================
+GET {{baseUrl}}/69d09a9b9fcead5793efba75
+Authorization: Bearer {{adminToken}}
+
+
+### =========================
+### 3. Update User (role / status / name)
+### =========================
+PATCH {{baseUrl}}/69d09a9b9fcead5793efba75
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "name": "Updated Name",
+  "role": "viewer",
+  "status": "active"
+}
+
+
+### =========================
+### 4. Update Only Role
+### =========================
+PATCH {{baseUrl}}/69d09a9b9fcead5793efba75
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "role": "admin"
+}
+
+
+### =========================
+### 5. Update Only Status
+### =========================
+PATCH {{baseUrl}}/69d09a9b9fcead5793efba75
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "status": "inactive"
+}
+
+
+### =========================
+### 6. Delete User
+### =========================
+DELETE {{baseUrl}}/69d0996d8204e8316e3d776c
+Authorization: Bearer {{adminToken}}

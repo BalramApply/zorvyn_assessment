@@ -1,0 +1,26 @@
+/* ─── Layout Shell ────────────────────────────────────────────── */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ─── Main Content ────────────────────────────────────────────── */
+.main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 36px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .main {
+    padding: 80px 16px 24px; /* 80px top clears the fixed 56px topbar */
+  }
+}
+
+@media (max-width: 480px) {
+  .main { padding: 72px 12px 20px; }
+}

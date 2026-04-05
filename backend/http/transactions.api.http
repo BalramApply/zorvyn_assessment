@@ -1,0 +1,62 @@
+### Base URL
+@baseUrl = http://localhost:5000/api/transactions
+
+### Tokens
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDA5ZjdjNGFkYjk4Zjg5ODBmNGEwNiIsImlhdCI6MTc3NTI4MDAyNSwiZXhwIjoxNzc1ODg0ODI1fQ.BC8nIM1hPvWK-hfs_NNMLAnXvorv8-x0wea55340tX4
+@adminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDA5OTZkODIwNGU4MzE2ZTNkNzc2YiIsImlhdCI6MTc3NTI3OTIzMSwiZXhwIjoxNzc1ODg0MDMxfQ.fG6Q-8guQ5T9lCkwOn72Hr4Gbbw3BXB51Jm1QrqS0zQ
+
+### =========================
+### 1. Get All Transactions (Filter + Pagination)
+### =========================
+GET {{baseUrl}}?page=1&limit=10&type=expense&category=food&startDate=2024-01-01&endDate=2024-12-31&search=lunch&sortBy=date&order=desc
+Authorization: Bearer {{token}}
+
+
+### =========================
+### 2. Get All Transactions (Simple)
+### =========================
+GET {{baseUrl}}
+Authorization: Bearer {{token}}
+
+
+### =========================
+### 3. Get Transaction By ID 
+### =========================
+GET {{baseUrl}}/69d0a055dfce23bc96faa7c6
+Authorization: Bearer {{token}}
+
+
+### =========================
+### 4. Create Transaction (Admin Only)
+### =========================
+POST {{baseUrl}}
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "type": "expense",
+  "amount": 500,
+  "category": "food",
+  "date": "2024-04-01",
+  "note": "Lunch with friends"
+}
+
+
+### =========================
+### 5. Update Transaction (Admin Only)
+### =========================
+PATCH {{baseUrl}}/69d0a01bdfce23bc96faa7c5
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "amount": 700,
+  "note": "Updated lunch expense"
+}
+
+
+### =========================
+### 6. Delete Transaction (Admin Only - Soft Delete)
+### =========================
+DELETE {{baseUrl}}/69d0a01bdfce23bc96faa7c5
+Authorization: Bearer {{adminToken}}

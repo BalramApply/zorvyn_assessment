@@ -1,0 +1,110 @@
+/* ─── Page Shell ──────────────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--bg);
+
+  /* subtle grid backdrop */
+  background-image:
+    linear-gradient(rgba(255,230,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,230,0,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─── Card ────────────────────────────────────────────────────── */
+.card {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ─── Logo ────────────────────────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  flex-shrink: 0;
+}
+
+.logoName {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+/* ─── Heading ─────────────────────────────────────────────────── */
+.heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: 0.02em;
+  margin: 0 0 6px;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.subheading {
+  color: var(--text-2);
+  font-size: 13px;
+  margin: 0 0 28px;
+  font-family: var(--font-body);
+  letter-spacing: 0.04em;
+}
+
+/* ─── Error wrapper ───────────────────────────────────────────── */
+.alertWrap {
+  margin-bottom: 20px;
+}
+
+/* ─── Form ────────────────────────────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.submitBtn {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* ─── Footer link ─────────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--text-3);
+  font-family: var(--font-body);
+}
+
+.link {
+  color: var(--gold);
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: opacity 0.15s;
+}
+.link:hover { opacity: 0.75; }
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .page    { padding: 16px; align-items: flex-start; padding-top: 40px; }
+  .heading { font-size: 22px; }
+  .logo    { margin-bottom: 28px; }
+}

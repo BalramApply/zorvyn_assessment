@@ -1,0 +1,221 @@
+/* ─── Page Shell ──────────────────────────────────────────────── */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ─── Centered (loading / access denied) ─────────────────────── */
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+/* ─── Header ──────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.headerDate {
+  font-size: 11px;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0;
+}
+
+.headerYear {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-3);
+  text-align: right;
+  letter-spacing: 0.1em;
+}
+
+/* ─── Stat Cards Grid ─────────────────────────────────────────── */
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+/* ─── Charts Row ──────────────────────────────────────────────── */
+.chartsRow {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+}
+
+/* ─── Chart Card inner padding override ───────────────────────── */
+.chartCard { padding: 24px 20px; }
+
+/* ─── Chart / Section Header ──────────────────────────────────── */
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-weight: 700;
+  font-size: 14px;
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.sectionYear {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-3);
+  margin-left: auto;
+  letter-spacing: 0.08em;
+}
+
+/* ─── Pie Legend ──────────────────────────────────────────────── */
+.pieList {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.pieRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.pieRowLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.pieDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pieName {
+  color: var(--text-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 110px;
+  font-family: var(--font-body);
+}
+
+.pieValue {
+  font-family: var(--font-mono);
+  color: var(--text);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+/* ─── Recent Activity List ────────────────────────────────────── */
+.txList {
+  display: flex;
+  flex-direction: column;
+}
+
+.txRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--border);
+  animation: fadeUp 0.4s ease both;
+  transition: background 0.15s;
+}
+.txRow:last-child  { border-bottom: none; }
+.txRow:hover       { background: var(--bg-3); }
+
+.txLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.txIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+}
+
+.txIconIncome  { background: var(--green-dim); color: var(--green); }
+.txIconExpense { background: var(--red-dim);   color: var(--red);   }
+
+.txCategory {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+  margin: 0 0 2px;
+  font-family: var(--font-body);
+}
+
+.txDate {
+  font-size: 11px;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.txRight { text-align: right; }
+
+.txAmount {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 0 4px;
+}
+
+.txAmountIncome { color: var(--green); }
+.txAmountExpense { color: var(--red); }
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .chartsRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .page        { gap: 20px; }
+  .statGrid    { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .heading     { font-size: 22px; }
+  .headerYear  { display: none; }
+  .chartsRow   { gap: 16px; }
+}
+
+@media (max-width: 400px) {
+  .statGrid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,46 @@
+### Base URL
+@baseUrl = http://localhost:5000/api/auth
+
+### =========================
+### 1. Register User
+### =========================
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "name": "Balram",
+  "email": "balram@tesked.com",
+  "password": "123456",
+  "role": "viewer"
+}
+
+### =========================
+### 2. Register Admin (Protected - need admin token) 
+### =========================
+POST {{baseUrl}}/register-admin
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDA5OTZkODIwNGU4MzE2ZTNkNzc2YiIsImlhdCI6MTc3NTI3OTIzMSwiZXhwIjoxNzc1ODg0MDMxfQ.fG6Q-8guQ5T9lCkwOn72Hr4Gbbw3BXB51Jm1QrqS0zQ
+
+{
+  "name": "Admin User",
+  "email": "admin@testss.com",
+  "password": "123456",
+  "role": "admin"
+}
+
+### =========================
+### 3. Login User
+### =========================
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "balram@tesk.com",
+  "password": "123456"
+}
+
+### =========================
+### 4. Get Current User (Protected)
+### =========================
+GET {{baseUrl}}/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDA5OTZkODIwNGU4MzE2ZTNkNzc2YiIsImlhdCI6MTc3NTI3ODk5MywiZXhwIjoxNzc1ODgzNzkzfQ.i8s1ehGzJsnn27JxhRUIkXiN8ThPY4Ryupsaslp-1S8

@@ -1,0 +1,137 @@
+/* ─── Page Shell ──────────────────────────────────────────────── */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ─── Header ──────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0;
+}
+
+.subheading {
+  color: var(--text-2);
+  font-size: 13px;
+  font-family: var(--font-mono);
+  margin: 4px 0 0;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Filters Card ────────────────────────────────────────────── */
+.filterCard { padding: 18px 20px; }
+
+.filterGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+/* ─── Table Card ──────────────────────────────────────────────── */
+.tableCard {
+  padding: 0;
+  overflow: hidden;
+}
+
+.tableLoading {
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+}
+
+/* ─── Table Row ───────────────────────────────────────────────── */
+.txRow {
+  animation: fadeIn 0.3s ease both;
+  transition: background 0.12s;
+  cursor: default;
+}
+.txRow:hover { background: var(--bg-3); }
+
+.txCategory { font-weight: 500; color: var(--text); }
+
+.txNotes {
+  color: var(--text-2);
+  font-size: 13px;
+  font-family: var(--font-body);
+}
+
+.txAmount {
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+.txAmountIncome  { color: var(--green); }
+.txAmountExpense { color: var(--red);   }
+
+.actionCell {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+/* ─── Pagination footer ───────────────────────────────────────── */
+.paginationWrap {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+}
+
+/* ─── Modal Form ──────────────────────────────────────────────── */
+.formError { margin-bottom: 16px; }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formGrid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.formActions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+/* ─── Delete Modal ────────────────────────────────────────────── */
+.deleteText {
+  color: var(--text-2);
+  font-size: 14px;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.deleteActions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .heading    { font-size: 22px; }
+  .filterGrid { grid-template-columns: 1fr 1fr; }
+  .formGrid2  { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .filterGrid { grid-template-columns: 1fr; }
+  .header     { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
